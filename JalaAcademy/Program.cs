@@ -6,79 +6,94 @@ using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Net.NetworkInformation;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 {
 
-    // 1.Write a program in C# Sharp to display n terms of natural number and their sum.
+    //1.Write a program using WriteLine(Boolean) method in c#
+    bool isTrue = true;
+    Console.WriteLine(isTrue);
+
+
+    // 2. Write a program on static and instance methods in c#
+    Car.Run();
+    Car car = new Car();
+    car.Engine();
+
+    // 3.Write a method of Calculator and print sum and product in c#
     // Ex:
     // Input:
-    // Enter number of natural terms do you want
+    // enter a and b values
     // Output :
-    // The first 7 natural number is :
-    // 1 2 3 4 5 6 7
-    // The Sum of Natural Number upto 7 terms: 28
-    Console.WriteLine($"Enter number of natural terms do you want");
+    // sum = 12 and product = 36
+    Console.WriteLine($"Input a number");
     var a = Console.ReadLine();
-    int number = Convert.ToInt32(a.ToString());
-    Console.WriteLine($"The first {number} natural is :");
-    int sum = 0;
-    for (int i = 1; i <= number; i++)
-    {
-        Console.Write($"{i} ");
-        sum = sum + i;
-    }
-    Console.WriteLine();
-    Console.WriteLine($"The Sum of Natural Number upto {number} terms : {sum}");
-
-
-    // 2.Write a program in C# Sharp to display the n terms of odd natural number and their sum.
-    // Ex:
-    // Input:
-    // Input number of terms : 10
-    // Output:
-    // The odd numbers are :1 3 5 7 9 11 13 15 17 19
-    // The Sum of odd Natural Number upto 10 terms: 100
-    Console.WriteLine($"Input number of terms");
+    int number1 = Convert.ToInt32(a.ToString());
+    Console.WriteLine($"Input b number");
     var b = Console.ReadLine();
-    int oddnumber = Convert.ToInt32(b.ToString());
-    Console.WriteLine($"The odd numbers are :");
-    int oddSum= 0;
-    for (int i = 1; i <= oddnumber; i++)
-    {
-        
-        Console.Write($"{i*2-1} ");
-        oddSum = oddSum + i * 2 - 1;
-    }
-    Console.WriteLine();
-    Console.WriteLine($"The Sum of odd Natural Number upto 10 terms : : {oddSum}");
+    int number2 = Convert.ToInt32(b.ToString());
+    Console.WriteLine($"sum = {Sum(number1,number2)} and product = {Product(number1, number2)}");
 
+    // 4.Write a program using parameter arrays and print output in console in c#
+    int[] array = new int[5] { 1, 2, 3, 4, 5 };
+    Console.WriteLine("Print Array");
+    PrintArray(array);
 
-    // 3.By using Array write the program using For and Foreach loop in c#
+    // 5.Write a program to print entered number of even numbers in c#
     // Ex:
     // Input:
-    // Enter Array printing using for loop
-    // Enter Array printing using ForEach loop
+    // Enter number : 5
     // Output:
-    // JalaTechnologies
-    // JalaTechnologies
-
-   
-    Console.WriteLine("Enter Array printing using for loop");
-    string stringValue1  = Console.ReadLine();
-    Console.WriteLine("Enter Array printing using ForEach loop");
-    string stringValue2 = Console.ReadLine();
-    char[] chArray = stringValue1.ToCharArray();
-    for (int i = 0; i< stringValue1.Length; i++)
-    {
-        Console.Write(chArray[i]);
-    }
+    // 2 4 6 10 12
     Console.WriteLine();
-
-    foreach (char ch in stringValue2)
-    {
-        Console.Write(ch);
-    }
+    Console.WriteLine($"Enter Number");
+    var c = Console.ReadLine();
+    int number3 = Convert.ToInt32(a.ToString());
+    PrintEvenNumber(number3);
 
 }
+
+void PrintArray(int[] array)
+{
+    for (int i = 0; i< array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+}
+
+void PrintEvenNumber(int n)
+{
+    for (int i =1; i <=n; i++)
+    {
+        Console.Write(i * 2);
+    }
+}
+
+ int Sum(int a, int b)
+{
+    return a + b;
+}
+
+int Product (int a, int b)
+{
+    return a * b;
+}
+
+class Car
+{
+    
+    public static void Run()
+    {
+        Console.WriteLine("It is static method");
+    }
+    public void Engine()
+    {
+        Console.WriteLine("It is instance method");
+    }
+}
+
+
+
+
 
