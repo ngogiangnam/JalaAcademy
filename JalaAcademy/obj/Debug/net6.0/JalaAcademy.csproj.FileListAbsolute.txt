@@ -1,0 +1,15 @@
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\bin\Debug\net6.0\JalaAcademy.exe
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\bin\Debug\net6.0\JalaAcademy.deps.json
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\bin\Debug\net6.0\JalaAcademy.runtimeconfig.json
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\bin\Debug\net6.0\JalaAcademy.dll
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\bin\Debug\net6.0\JalaAcademy.pdb
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.csproj.AssemblyReference.cache
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.AssemblyInfoInputs.cache
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.AssemblyInfo.cs
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.csproj.CoreCompileInputs.cache
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.dll
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\refint\JalaAcademy.dll
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.pdb
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\JalaAcademy.genruntimeconfig.cache
+D:\Nam\Jala_Academy\JalaAcademy\JalaAcademy\obj\Debug\net6.0\ref\JalaAcademy.dll
