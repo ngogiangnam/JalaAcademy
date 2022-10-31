@@ -1,55 +1,77 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Microsoft.VisualBasic;
+using System;
+using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 {
 
-    // 1. Create any value called EmpName and print that value in the output
-    string empName;
-    Console.WriteLine($"Input empName");
-    empName = Console.ReadLine();
-    Console.WriteLine($"Value of empName Output: {empName}");
+    // 1. Declare a value as int datatype and print in the output
+    int  intValue = 100;
+    Console.WriteLine($"Value of Int Type is : {intValue}");
 
-    // 2.Declare a variable name of any datatype and read the name in the output
-    int intType = 5;
-    Console.WriteLine($"DataType of intType is {intType.GetType().Name}");
-    // 3. Enter your name and from WriteLine function and print the output
-    Console.WriteLine("Enter your name");
-    string myName= Console.ReadLine();
-    Console.WriteLine($"My name is : {myName}");
+    // 2.Write a program in boolean type and print in console
+    bool boolValue = true;
+    Console.WriteLine($"Value of Boolean Type is : {boolValue}");
 
-    // 4.Declare a 2 strings as input and contacenate with another string with the both Strings and get Output
-    //Ex: Input : enter firstname , enter lastname , "Hello" + firstname + lastname
+    //3.Write a program on converting Float to Decimal type and print in console
+
+    float floatValue = 1/3f;
+    decimal decimalValue = Convert.ToDecimal(floatValue);
+    Console.WriteLine($"Convert Float Value : {floatValue} to Decimal is : {decimalValue}");
+
+
+    // 4. Write a C# Sharp program that takes two numbers as input and perform an
+    //operation (+,-,*,x,/) on them and displays the result of that operation.
+    //Input : first number: 20, second number: 12
+    //Output : 20-12 = 8
     //Output: Hello firstname lastname
-    Console.WriteLine("Enter first name");
-    string firstName = Console.ReadLine();
-    Console.WriteLine("Enter last name");
-    string lastName = Console.ReadLine();
-    Console.WriteLine($"Hello {firstName} {lastName}");
+    Console.WriteLine("Enter first Number");
+    string firstNumberString = Console.ReadLine();
+    int firstNumber = Convert.ToInt32(firstNumberString);
+    Console.WriteLine("Enter second Number");
+    string secondNumberString = Console.ReadLine();
+    int secondNumber = Convert.ToInt32(secondNumberString);
+    Console.WriteLine($"Output: {firstNumber} - {secondNumber} = {Sub(firstNumber,secondNumber)} ");
 
-    // 5. Write a program by taking two integer values and return the value by adding in the Output
-    //Ex: Input: 5,4
-    //Output : 9
+    // 5. Write a C# Sharp program that takes three letters as input and display them in Reverse Order.
+    //Ex: Input: Enter letter: b Enter letter: a Enter letter: t
+    //Output : t a b
 
-    int value1 = 5;
-    int value2 = 4;
-    Console.WriteLine($"Input: {value1},{value2}");
-    Console.WriteLine($"Output {Add(value1, value2)}");
+    string b;
+    string t;
+    string a;
+    Console.WriteLine("Enter letter");
+    b= Console.ReadLine();
+    Console.WriteLine("Enter letter");
+    a = Console.ReadLine();
+    Console.WriteLine("Enter letter");
+    t = Console.ReadLine();
+    Console.WriteLine($"Output {t} {a} {b}");
 
-    // 6. Write a program to enter password by converting it to char array into string print the Output
-    // Ex: Input : enter password
-    // Output : Password : 123
-    Console.WriteLine("Enter pasword");
-    string passwordString = Console.ReadLine();
-    char[] passwordCharArray = passwordString.ToCharArray();
-    Console.Write("Password: ");
-    foreach(char ch in passwordCharArray)
+    // 6. Write a C# Sharp program that takes a character as input and check the input 
+    //(lowercase) is a vowel, a digit, or any other symbol.
+    //Ex: Input : symbol : a
+    //Output : It is a lowercase vowel
+    Console.WriteLine("Input character");
+    string characterString = Console.ReadLine();
+    if (Char.IsLower(characterString[0]))
     {
-        Console.Write(ch);
+        Console.WriteLine("It is a lowercase symbol");
     }
+    else
+    {
+        Console.WriteLine("It is a uppercase symbol");
+    }
+    
 }
 
 int Add(int a, int b)
 {
     return a + b;
+}
+int Sub(int a,int b)
+{
+    return a - b;
 }
