@@ -7,71 +7,100 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 {
 
-    // 1. Declare a value as int datatype and print in the output
-    int  intValue = 100;
-    Console.WriteLine($"Value of Int Type is : {intValue}");
+    // 1. Write a Program to Reverse a String without using Reverse function
+    // Ex: Enter a String : INDIA
+    // Reverse String is : AIDNA
 
-    // 2.Write a program in boolean type and print in console
-    bool boolValue = true;
-    Console.WriteLine($"Value of Boolean Type is : {boolValue}");
+    Console.WriteLine("Enter a String");
+    string stringValue = Console.ReadLine();
+    char[] charArray = stringValue.ToCharArray();
 
-    //3.Write a program on converting Float to Decimal type and print in console
-
-    float floatValue = 1/3f;
-    decimal decimalValue = Convert.ToDecimal(floatValue);
-    Console.WriteLine($"Convert Float Value : {floatValue} to Decimal is : {decimalValue}");
-
-
-    // 4. Write a C# Sharp program that takes two numbers as input and perform an
-    //operation (+,-,*,x,/) on them and displays the result of that operation.
-    //Input : first number: 20, second number: 12
-    //Output : 20-12 = 8
-    //Output: Hello firstname lastname
-    Console.WriteLine("Enter first Number");
-    string firstNumberString = Console.ReadLine();
-    int firstNumber = Convert.ToInt32(firstNumberString);
-    Console.WriteLine("Enter second Number");
-    string secondNumberString = Console.ReadLine();
-    int secondNumber = Convert.ToInt32(secondNumberString);
-    Console.WriteLine($"Output: {firstNumber} - {secondNumber} = {Sub(firstNumber,secondNumber)} ");
-
-    // 5. Write a C# Sharp program that takes three letters as input and display them in Reverse Order.
-    //Ex: Input: Enter letter: b Enter letter: a Enter letter: t
-    //Output : t a b
-
-    string b;
-    string t;
-    string a;
-    Console.WriteLine("Enter letter");
-    b= Console.ReadLine();
-    Console.WriteLine("Enter letter");
-    a = Console.ReadLine();
-    Console.WriteLine("Enter letter");
-    t = Console.ReadLine();
-    Console.WriteLine($"Output {t} {a} {b}");
-
-    // 6. Write a C# Sharp program that takes a character as input and check the input 
-    //(lowercase) is a vowel, a digit, or any other symbol.
-    //Ex: Input : symbol : a
-    //Output : It is a lowercase vowel
-    Console.WriteLine("Input character");
-    string characterString = Console.ReadLine();
-    if (Char.IsLower(characterString[0]))
+    string reverseStringValue = string.Empty;
+    for(int i = stringValue.Length - 1; i >= 0; i--)
     {
-        Console.WriteLine("It is a lowercase symbol");
+        reverseStringValue += charArray[i];
     }
-    else
+    Console.WriteLine($"Reverse String is : {reverseStringValue}");
+
+    // 2. Write a program in C# Sharp to find the length of a string without using library function.
+    //Ex: Input: Jalatechnologies
+    //Output : 16
+    Console.WriteLine("Enter String to check Length");
+    string checkedLengthStringValue = Console.ReadLine();
+    int length = 0;
+    foreach (char ch in checkedLengthStringValue)
     {
-        Console.WriteLine("It is a uppercase symbol");
+        length++;
     }
+    Console.WriteLine($"Length of {checkedLengthStringValue} is : {length}");
+
+    //3. Write a Program to calculate the length of the string using count function
+
+    Console.WriteLine("Enter String to check Length using Count Function");
+    string checkedStringValue = Console.ReadLine();
+    Console.WriteLine($"Length of {checkedStringValue} is : {checkedStringValue.Length}");
+
+
+    // 4. Write a Program to Replace String in String using Replace function
+    //Ex: Sentence Before Replacing : Sun Rises in the West
+    //Sentence After Replacing : Sun Rises in the East
+    string beforeSentence = "Sun Rises in the West";
+    string afterSentence = beforeSentence.Replace("West", "East");
+    Console.WriteLine($"Sentence Before Replacing: {beforeSentence}");
+    Console.WriteLine($"Sentence After Replacing: {afterSentence}");
+
+
+    // 5.Write a Program to Convert Upper case to Lower Case using LowerCase method
+    //Ex: Enter the String in Uppercase : JALA
+    //String in Lowercase :jala
+
     
+    Console.WriteLine("Enter the String in Uppercase");
+    string upperCaseString= Console.ReadLine();
+    Console.WriteLine($"String in Lowercase: {upperCaseString.ToLower()}");
+
+    // 6. Write a program in C# Sharp to find maximum occurring character in a string. 
+    //Ex: Input string : Welcome to india
+    //Output : The highest frequency of the character 'a' appear as 1 time
+
+    Console.WriteLine("Input String");
+    string characterString = Console.ReadLine();
+    int max = 0;
+    char result = new char();
+    int[] count = new int[256];
+    
+    for (int i= 0; i < characterString.Length; i++)
+    {
+        count[characterString[i]]++;
+        if (max < count[characterString[i]])
+        {
+            max = count[characterString[i]];
+            result = characterString[i];
+        }
+    }
+    Console.WriteLine($"The highest freaquency of the character '{result}' appear as {max} time");
+
+    //7. Write a program in C# Sharp to sort a string array in ascending order.
+    //Ex: Input string : this is a string
+    //Output : After sorting the string appears like : a g h i i i n r s s s t t
+    Console.WriteLine("Input String for task 7");
+    string inputString = Console.ReadLine();
+    char[] charList = inputString.ToCharArray();
+    char chTemp;
+    for (int i= 1; i < inputString.Length; i++)
+        for (int j=0; j< inputString.Length - i; j++)
+        {
+            if (charList[j] > charList[j+1])
+            {
+                chTemp = charList[j];
+                charList[j] = charList[j + 1];
+                charList[j + 1] = chTemp;
+            }
+        }
+    Console.WriteLine($"After sorting the string appears like : ");
+    foreach (char c in charList)
+    {
+        Console.Write($"{c} ");
+    }
 }
 
-int Add(int a, int b)
-{
-    return a + b;
-}
-int Sub(int a,int b)
-{
-    return a - b;
-}
