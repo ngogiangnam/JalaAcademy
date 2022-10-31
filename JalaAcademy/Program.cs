@@ -10,54 +10,63 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 {
 
-    // 1.Write the program to demonstrate the working of Binary Arithmetic Operators ?
+    // 1.Write a program to Implicit Type Conversion
     // Ex:
     // Input:
-    // Enter a and b values and result to perform operations on(+, -, *,/,%)
+    // Enter Int value
+    // Enter Long value
     // Output:
-    // Addition Operator: 15 Subtraction Operator: 5 Multiplication Operator: 50 Division Operator: 2 Modulo Operator: 0
-    int  a = 10, b = 5, res;
-    Console.WriteLine($"a = {a}, b = {b}");
-    res = a + b;
-    Console.WriteLine($"Addition Operator: {res}");
-    res = a - b;
-    Console.WriteLine($"Subtraction Operator: {res}");
-    res = a * b;
-    Console.WriteLine($"Multiplication Operator: {res}");
-    res = a / b;
-    Console.WriteLine($"Division Operator: {res}");
-    res = a % b;
-    Console.WriteLine($"Modulo Operator: {res}");
+    // Int value -53
+    // Long value -53
+    int intValue = -53;
+    long longValue = intValue;
+    Console.WriteLine($"Int Value : {intValue}");
+    Console.WriteLine($"Long Value : {longValue}");
 
-    // 2.Write the program to demonstrate the working of Unary Arithmetic Operators?
-    // Ex:
-    // Input:
-    // Enter a value and res to perform operations on(a++, a--, ++a, --a)
-    // Output:
-    // a is 11 and res is 10 a is 10 and res is 11 a is 11 and res is 11 a is 10 and res is 10
-    a = 10;
-    res = a++;
-    Console.WriteLine($"a is {a} and res is {res}");
-    res = a--;
-    Console.WriteLine($"a is {a} and res is {res}");
-    res = ++a;
-    Console.WriteLine($"a is {a} and res is {res}");
-    res = --a;
-    Console.WriteLine($"a is {a} and res is {res}");
 
-    // 3.Write the program to demonstrate the working of Relational Operators?
+    // 2.Write an example of explicit type conversion
     // Ex:
     // Input:
-    // Enter a and b values and result to perform operations on(==,>,<,>=,<=,!=)
+    // Enter Value of I
     // Output:
-    // Equal to Operator: False Greater than Operator: False Less than Operator: True Greater than or Equal to: False Lesser than or Equal to: True Not Equal to Operator: True
-    a = 5; 
-    b = 10;
-    Console.WriteLine($"Equal to Operator: {a == b}");
-    Console.WriteLine($"Greater than Operator:: {a > b}");
-    Console.WriteLine($"Less than Operator: {a < b}");
-    Console.WriteLine($"Greater than or Equal to: {a >= b}");
-    Console.WriteLine($"Lesser than or Equal to: {a <= b}");
-    Console.WriteLine($"Not Equal to Operator: {a != b}");
+    // Value of I is 34
+
+    double numDouble = 34.12;
+    int numInt = (int)numDouble;
+    Console.WriteLine($"value of Int is {numInt}");
+
+
+    // 3.Write a program of built in type conversion methods
+    // Ex:
+    // Input:
+    // Enter string name
+    // Enter Integer value
+    // Output :
+    // string to float -34.6
+    // int to double -337
+
+    Console.WriteLine($"Enter string name");
+    var a = Console.ReadLine();
+    Console.WriteLine($"Enter Integer value");
+    var b = Console.ReadLine();
+    float floatValue = Convert.ToSingle(a.ToString());
+    double doubleValue = Convert.ToDouble(b.ToString());
+    Console.WriteLine($"string to float {floatValue}");
+    Console.WriteLine($"int to double {doubleValue}");
+
+
+    // 4.Write a program that converts various value types to string type
+    // Ex:
+    // Input:
+    // Enter Integer value
+    // Enter Float Value
+    // Output:
+    // int.ToString() - 75
+    // float.ToString() - 43.09
+    int c = - 75;
+    float d = -43.09f;
+    Console.WriteLine($"int.ToString() {c.ToString()}");
+    Console.WriteLine($"float.ToString() {d.ToString()}");
+
 }
 
