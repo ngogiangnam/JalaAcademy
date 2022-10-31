@@ -10,63 +10,74 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 {
 
-    // 1.Write a program to Implicit Type Conversion
+    // 1.Write a C# Sharp program to check whether a given number is positive or negative.
     // Ex:
-    // Input:
-    // Enter Int value
-    // Enter Long value
-    // Output:
-    // Int value -53
-    // Long value -53
-    int intValue = -53;
-    long longValue = intValue;
-    Console.WriteLine($"Int Value : {intValue}");
-    Console.WriteLine($"Long Value : {longValue}");
-
-
-    // 2.Write an example of explicit type conversion
-    // Ex:
-    // Input:
-    // Enter Value of I
-    // Output:
-    // Value of I is 34
-
-    double numDouble = 34.12;
-    int numInt = (int)numDouble;
-    Console.WriteLine($"value of Int is {numInt}");
-
-
-    // 3.Write a program of built in type conversion methods
-    // Ex:
-    // Input:
-    // Enter string name
-    // Enter Integer value
-    // Output :
-    // string to float -34.6
-    // int to double -337
-
-    Console.WriteLine($"Enter string name");
+    // Input: 14 Output: 14 is a positive number
+    Console.WriteLine($"Enter a number");
     var a = Console.ReadLine();
-    Console.WriteLine($"Enter Integer value");
-    var b = Console.ReadLine();
-    float floatValue = Convert.ToSingle(a.ToString());
-    double doubleValue = Convert.ToDouble(b.ToString());
-    Console.WriteLine($"string to float {floatValue}");
-    Console.WriteLine($"int to double {doubleValue}");
+    int number = Convert.ToInt32(a.ToString());
+    if (number > 0)
+    {
+        Console.WriteLine($"{a} is a positive number");
+    }
+    else if (number < 0)
+    {
+        Console.WriteLine($"{a} is a negative number");
+    }
 
-
-    // 4.Write a program that converts various value types to string type
+    // 2.Write a C# Sharp program to find whether a given year is a leap year or not.
     // Ex:
-    // Input:
-    // Enter Integer value
-    // Enter Float Value
-    // Output:
-    // int.ToString() - 75
-    // float.ToString() - 43.09
-    int c = - 75;
-    float d = -43.09f;
-    Console.WriteLine($"int.ToString() {c.ToString()}");
-    Console.WriteLine($"float.ToString() {d.ToString()}");
+    // Input: 2016
+    // Output: 2016 is leap year
 
+    Console.WriteLine($"Enter a year");
+    var b = Console.ReadLine();
+    int year = Convert.ToInt32(b.ToString());
+    if (DateTime.IsLeapYear(year) )
+    {
+        Console.WriteLine($"{year} is leap year");
+    }
+    else 
+    {
+        Console.WriteLine($"{year} is not leap year");
+    }
+
+   // 3.Write a C# Sharp program to check whether an alphabet is a vowel or consonant.
+   // Ex:
+   // Input: enter any alphabet: k
+   // Output : The alphabet is a consonant.
+
+    Console.WriteLine($"Enter any alphabet");
+    var c = Console.ReadLine();
+    char ch = Convert.ToChar(c.ToLower());
+    int i = ch;
+    if (i >= 48 && i <= 57)
+    {
+        Console.WriteLine("You entered a number, Please enter an alpahbet.");
+    }
+    else
+    {
+        switch (ch)
+        {
+            case 'a':
+                Console.WriteLine("The Alphabet is vowel");
+                break;
+            case 'i':
+                Console.WriteLine("The Alphabet is vowel");
+                break;
+            case 'o':
+                Console.WriteLine("The Alphabet is vowel");
+                break;
+            case 'u':
+                Console.WriteLine("The Alphabet is vowel");
+                break;
+            case 'e':
+                Console.WriteLine("The Alphabet is vowel");
+                break;
+            default:
+                Console.WriteLine("The Alphabet is a consonant.");
+                break;
+        }
+    }
 }
 
