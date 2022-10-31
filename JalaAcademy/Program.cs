@@ -10,74 +10,75 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 {
 
-    // 1.Write a C# Sharp program to check whether a given number is positive or negative.
+    // 1.Write a program in C# Sharp to display n terms of natural number and their sum.
     // Ex:
-    // Input: 14 Output: 14 is a positive number
-    Console.WriteLine($"Enter a number");
+    // Input:
+    // Enter number of natural terms do you want
+    // Output :
+    // The first 7 natural number is :
+    // 1 2 3 4 5 6 7
+    // The Sum of Natural Number upto 7 terms: 28
+    Console.WriteLine($"Enter number of natural terms do you want");
     var a = Console.ReadLine();
     int number = Convert.ToInt32(a.ToString());
-    if (number > 0)
+    Console.WriteLine($"The first {number} natural is :");
+    int sum = 0;
+    for (int i = 1; i <= number; i++)
     {
-        Console.WriteLine($"{a} is a positive number");
+        Console.Write($"{i} ");
+        sum = sum + i;
     }
-    else if (number < 0)
-    {
-        Console.WriteLine($"{a} is a negative number");
-    }
+    Console.WriteLine();
+    Console.WriteLine($"The Sum of Natural Number upto {number} terms : {sum}");
 
-    // 2.Write a C# Sharp program to find whether a given year is a leap year or not.
+
+    // 2.Write a program in C# Sharp to display the n terms of odd natural number and their sum.
     // Ex:
-    // Input: 2016
-    // Output: 2016 is leap year
-
-    Console.WriteLine($"Enter a year");
+    // Input:
+    // Input number of terms : 10
+    // Output:
+    // The odd numbers are :1 3 5 7 9 11 13 15 17 19
+    // The Sum of odd Natural Number upto 10 terms: 100
+    Console.WriteLine($"Input number of terms");
     var b = Console.ReadLine();
-    int year = Convert.ToInt32(b.ToString());
-    if (DateTime.IsLeapYear(year) )
+    int oddnumber = Convert.ToInt32(b.ToString());
+    Console.WriteLine($"The odd numbers are :");
+    int oddSum= 0;
+    for (int i = 1; i <= oddnumber; i++)
     {
-        Console.WriteLine($"{year} is leap year");
+        
+        Console.Write($"{i*2-1} ");
+        oddSum = oddSum + i * 2 - 1;
     }
-    else 
+    Console.WriteLine();
+    Console.WriteLine($"The Sum of odd Natural Number upto 10 terms : : {oddSum}");
+
+
+    // 3.By using Array write the program using For and Foreach loop in c#
+    // Ex:
+    // Input:
+    // Enter Array printing using for loop
+    // Enter Array printing using ForEach loop
+    // Output:
+    // JalaTechnologies
+    // JalaTechnologies
+
+   
+    Console.WriteLine("Enter Array printing using for loop");
+    string stringValue1  = Console.ReadLine();
+    Console.WriteLine("Enter Array printing using ForEach loop");
+    string stringValue2 = Console.ReadLine();
+    char[] chArray = stringValue1.ToCharArray();
+    for (int i = 0; i< stringValue1.Length; i++)
     {
-        Console.WriteLine($"{year} is not leap year");
+        Console.Write(chArray[i]);
+    }
+    Console.WriteLine();
+
+    foreach (char ch in stringValue2)
+    {
+        Console.Write(ch);
     }
 
-   // 3.Write a C# Sharp program to check whether an alphabet is a vowel or consonant.
-   // Ex:
-   // Input: enter any alphabet: k
-   // Output : The alphabet is a consonant.
-
-    Console.WriteLine($"Enter any alphabet");
-    var c = Console.ReadLine();
-    char ch = Convert.ToChar(c.ToLower());
-    int i = ch;
-    if (i >= 48 && i <= 57)
-    {
-        Console.WriteLine("You entered a number, Please enter an alpahbet.");
-    }
-    else
-    {
-        switch (ch)
-        {
-            case 'a':
-                Console.WriteLine("The Alphabet is vowel");
-                break;
-            case 'i':
-                Console.WriteLine("The Alphabet is vowel");
-                break;
-            case 'o':
-                Console.WriteLine("The Alphabet is vowel");
-                break;
-            case 'u':
-                Console.WriteLine("The Alphabet is vowel");
-                break;
-            case 'e':
-                Console.WriteLine("The Alphabet is vowel");
-                break;
-            default:
-                Console.WriteLine("The Alphabet is a consonant.");
-                break;
-        }
-    }
 }
 
