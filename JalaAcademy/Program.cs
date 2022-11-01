@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Reflection.Metadata;
@@ -11,88 +12,140 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 {
 
-    //1.Write a program using WriteLine(Boolean) method in c#
-    bool isTrue = true;
-    Console.WriteLine(isTrue);
+    // 1.Construct a class using any methods for employee details using its parameters and print
+    // Output.
+    Employee newEmployee = new Employee(1);
+    //2.Write a program using overloading class constructor
+    newEmployee.AddEmployee("Sale Department", "KK");
+    newEmployee.AddEmployee("DD", "123456", "IT Department", "DD");
 
+    // 4. Create an object of the Car class, with the name myObj. Then we print the value of
+    // the fields color and maxSpeed.
+    Car myObj = new Car();
+    myObj.ColorOfCar = "Green";
+    myObj.MaxSpeed = 200;
+    Console.WriteLine($"Color of the Car is : {myObj.ColorOfCar}");
+    Console.WriteLine($"Max Speed of the Car is : {myObj.MaxSpeed}");
 
-    // 2. Write a program on static and instance methods in c#
-    Car.Run();
-    Car car = new Car();
-    car.Engine();
-
-    // 3.Write a method of Calculator and print sum and product in c#
-    // Ex:
-    // Input:
-    // enter a and b values
-    // Output :
-    // sum = 12 and product = 36
-    Console.WriteLine($"Input a number");
-    var a = Console.ReadLine();
-    int number1 = Convert.ToInt32(a.ToString());
-    Console.WriteLine($"Input b number");
-    var b = Console.ReadLine();
-    int number2 = Convert.ToInt32(b.ToString());
-    Console.WriteLine($"sum = {Sum(number1,number2)} and product = {Product(number1, number2)}");
-
-    // 4.Write a program using parameter arrays and print output in console in c#
-    int[] array = new int[5] { 1, 2, 3, 4, 5 };
-    Console.WriteLine("Print Array");
-    PrintArray(array);
-
-    // 5.Write a program to print entered number of even numbers in c#
-    // Ex:
-    // Input:
-    // Enter number : 5
-    // Output:
-    // 2 4 6 10 12
-    Console.WriteLine();
-    Console.WriteLine($"Enter Number");
-    var c = Console.ReadLine();
-    int number3 = Convert.ToInt32(a.ToString());
-    PrintEvenNumber(number3);
-
+    // 5. Write a program on creating multiple objects of one class in c#
+    Car car1 = new Car();
+    Car car2 = new Car();
+    car1.ColorOfCar = "Blue";
+    car1.MaxSpeed = 150;
+    car2.ColorOfCar = "Red";
+    car2.MaxSpeed = 250;
+    Console.WriteLine($"Color of Car 1 is : {car1.ColorOfCar}");
+    Console.WriteLine($"Color of Car 2 is : {car2.ColorOfCar}");
 }
 
-void PrintArray(int[] array)
+
+class Employee
 {
-    for (int i = 0; i< array.Length; i++)
+    private int _empId;
+    private string _loginName;
+    private string _password;
+    private string _name;
+    private string _department;
+    public string Name
     {
-        Console.Write($"{array[i]} ");
+        get { return _name; }
+        set { _name = value; }
+    }
+    public string LoginName
+    {
+        get { return _loginName; }
+        set { _loginName = value; }
+    }
+    public string Password
+    {
+        get { return _password; }
+        set { _password = value; }
+    }
+    public string Department
+    {
+        get { return _department; }
+        set { _department = value; }
+    }
+    public int EmployeeID
+    {
+        get { return _empId; }
+    }
+
+    public Employee(int empId)
+    {
+        if (empId == 1)
+        {
+            _empId = 1;
+            LoginName = "A";
+            Password = "123456";
+            Name = "A";
+            Console.WriteLine($"Employee {_empId} is created");
+        }
+        else if (empId == 2)
+        {
+            _empId = 2;
+            LoginName = "B";
+            Password = "123456";
+            Name = "B";
+            Console.WriteLine($"Employee {_empId} is created");
+        }
+    }
+
+    public void Login(string loginName,string password)
+    {
+        if (loginName == "A" && password == "123456")
+        {
+            _empId = 1;
+            Name = "A";
+            Console.WriteLine("Input correct Id and password");
+        }
+        else
+        {
+            Console.WriteLine("Input wrong Id and Password");
+        }
+    }
+
+    public int AddEmployee(string loginName, string password, string department, string name)
+    {
+        _empId = 3;
+        LoginName = loginName;
+        Password = password;
+        Department = department;
+        Name = name;
+        return EmployeeID;
+    }
+
+    public int AddEmployee(string department, string name)
+    {
+        
+        _empId = 3;
+        Department = department;
+        Name = name;
+        return EmployeeID;
     }
 }
 
-void PrintEvenNumber(int n)
-{
-    for (int i =1; i <=n; i++)
-    {
-        Console.Write(i * 2);
-    }
-}
-
- int Sum(int a, int b)
-{
-    return a + b;
-}
-
-int Product (int a, int b)
-{
-    return a * b;
-}
-
+    //3. Create a Car class with three class members and two fields and one method in c#
 class Car
 {
-    
-    public static void Run()
+    private string colorOfCar;
+    private int maxSpeed;
+    public string ColorOfCar
     {
-        Console.WriteLine("It is static method");
+        get { return colorOfCar; }
+        set { colorOfCar = value; } 
     }
-    public void Engine()
+    public int MaxSpeed
     {
-        Console.WriteLine("It is instance method");
+        get { return maxSpeed; }
+        set { maxSpeed = value; }
+    }
+
+    public void Run()
+    {
+        Console.WriteLine("The car is moving");
     }
 }
-
 
 
 
