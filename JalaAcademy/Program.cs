@@ -10,74 +10,65 @@ using System.Reflection;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Xml.Linq;
 {
-    // 1. Define a program on overloading by changing the Number of parameters.
-    A classA = new A();
-    classA.Display(1);
-    classA.Display(1, 2);
+    //4. Create an object for the above EmployeeModel and assign the values to all properties and print each property on console
+    EmployeeModel employee = new EmployeeModel();
+    employee.EmpId = 1;
+    employee.EmpName = "Nam1";
+    employee.EmailId = "ngogiangNam90@gmail.com";
+    employee.Salary =60.5f;
+    employee.IsEmployeeActive = true;
+    Console.WriteLine($"Employee Id number is: {employee.EmpId}");
+    Console.WriteLine($"Employee Name  is: {employee.EmpName}");
+    Console.WriteLine($"Employee Email is: {employee.EmailId}");
+    Console.WriteLine($"Employee Id number so {employee.Salary}");
+    Console.WriteLine($"Employee is still active is : {employee.IsEmployeeActive}");
 
-    // 2. Define a program on changing the order of parameters using method overloading.
-    classA.Identity(1, "Nam1");
-    classA.Identity("Nam2", 2);
-
-    // 3. Define a program on a function Sum() that accepts values as a parameter and print their addition.
-    int[] array1 = new int[6] { 1, 2, 3, 4, 5, 6 };
-    int sum1 = classA.Sum(array1);
-    Console.WriteLine($"Sum int values = {sum1}");
-    double[] array2 = new double[6] { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
-    double sum2 = classA.Sum(array2);
-    Console.WriteLine($"Sum double values  = { sum2}");
-
-    //  4. Define a program on a function Division() that accepts multiple values as a parameter and print their divisor.
+    // 5.Create another object for the above EmployeeModel and assign different values to all properties and print each property on console
+    EmployeeModel employee1 = new EmployeeModel();
+    employee1.EmpId = 2 ;
+    employee1.EmpName = "Nam2";
+    employee1.EmailId = "ngogiangNam90@gmail.com";
+    employee1.IsEmployeeActive = true;
+    Console.WriteLine($"Employee Id number is: {employee1.EmpId}");
+    Console.WriteLine($"Employee Name  is: {employee1.EmpName}");
+    Console.WriteLine($"Employee Email is: {employee1.EmailId}");
+    Console.WriteLine($"Employee Id number so {employee1.Salary}");
+    Console.WriteLine($"Employee is still active is : {employee1.IsEmployeeActive}");
 
 
 }
 
 
-class A
+class Employee
 {
-    public void Display(int a)
-    {
-        Console.WriteLine($"1 parameter displayed");
-    } 
+    // 1. Write a program on illustrating the read-only property by taking as class Employee in c#
+    public readonly string idName ="1";
 
-    public void Display(int a, int b)
+    //2. Write a program on both read and write property using get and set accessories in c#
+    private string name;
+    public string Name
     {
-        Console.WriteLine($"2 parameters displayed");
-    }
-    public void Identity(String name, int id)
+    get
     {
-
-        Console.WriteLine("Name1 : " + name + ", "
-                        + "Id1 : " + id);
-    }
-
-    public void Identity(int id, String name)
-    {
-
-        Console.WriteLine("Name2 : " + name + ", "
-                        + "Id2 : " + id);
-    }
-
-    public int Sum(int[] intValueArray)
-    {
-        int sum = 0;
-        for (int i = 0; i < intValueArray.Length; i++)
-        {
-            sum = sum + intValueArray[i];
+            return name;
         }
-        return sum;
-    }
-    public double Sum(double[] intValueArray)
-    {
-        double sum = 0;
-        for (int i = 0; i < intValueArray.Length; i++)
+        set
         {
-            sum = sum + intValueArray[i];
+        name = value;
         }
-        return sum;
     }
+}
 
+// 3. Create a class with name EmployeeModel with 5 properties EmpId int, EmpName string, EmailId string, Salary float, IsEmployeeActive bool
+class EmployeeModel
+{
+    public int EmpId { get; set; }
+    public string EmpName { get; set; }
+    public string EmailId { get; set; }
+    public float Salary { get; set; }
+    public bool IsEmployeeActive { get; set; }
 }
 
 
