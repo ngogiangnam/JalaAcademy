@@ -11,60 +11,40 @@ using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 {
-    // 1. Write a program on A class has two methods with the same name "Add" but with
-    // different input parameters (the first method has three parameters and the second
-    // method has two parameters) in c#
+    // 1. Define a program on overloading by changing the Number of parameters.
     A classA = new A();
-    Console.WriteLine($"4 + 3 +2  = {classA.Add(4, 3, 2)}");
-    Console.WriteLine($"4 + 3  = {classA.Add(4, 3)}");
+    classA.Display(1);
+    classA.Display(1, 2);
 
-    //2. Write a program on Runtime polymorphism in c#
-
-    Users baseClass = new Users();
-    baseClass.GetInfo();
-    Details derivedClass = new Details();
-    derivedClass.GetInfo();
-
-    // 3. Write a program on taking one method with same but different signature in the methods in c#
-    classA.DoTask(2);
-    classA.DoTask("2");
-
-    // 4. Write a program to demonstrate the function overloading by changing the Data types of the parameters in c#
-    int sum1 = classA.Add(1, 2, 3);
-    Console.WriteLine($"Sum of the three int type = {sum1}");
-    double sum2 = classA.Add(1.0, 2.0, 3.0);
-    Console.WriteLine($"Sum of the three double type = {sum2}");
-
-    //5. Write a program to demonstrate the function overloading by changing the Order of the parameters in c#
+    // 2. Define a program on changing the order of parameters using method overloading.
     classA.Identity(1, "Nam1");
-    classA.Identity("Nam2",2);
+    classA.Identity("Nam2", 2);
+
+    // 3. Define a program on a function Sum() that accepts values as a parameter and print their addition.
+    int[] array1 = new int[6] { 1, 2, 3, 4, 5, 6 };
+    int sum1 = classA.Sum(array1);
+    Console.WriteLine($"Sum int values = {sum1}");
+    double[] array2 = new double[6] { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
+    double sum2 = classA.Sum(array2);
+    Console.WriteLine($"Sum double values  = { sum2}");
+
+    //  4. Define a program on a function Division() that accepts multiple values as a parameter and print their divisor.
+
 
 }
 
 
 class A
 {
-    public int Add(int a, int b, int c)
+    public void Display(int a)
     {
-        return a + b + c;
-    }
-    public double Add(double a,double b, double c)
+        Console.WriteLine($"1 parameter displayed");
+    } 
+
+    public void Display(int a, int b)
     {
-        return a + b + c; ;
+        Console.WriteLine($"2 parameters displayed");
     }
-    public int Add(int a, int b)
-    {
-        return a + b;
-    }
-    public void DoTask(int id)
-    {
-        Console.WriteLine($"Task ID is {id}");
-    }
-    public void DoTask(string idString)
-    {
-        Console.WriteLine($"Task ID is {idString}");
-    }
-   
     public void Identity(String name, int id)
     {
 
@@ -78,24 +58,28 @@ class A
         Console.WriteLine("Name2 : " + name + ", "
                         + "Id2 : " + id);
     }
+
+    public int Sum(int[] intValueArray)
+    {
+        int sum = 0;
+        for (int i = 0; i < intValueArray.Length; i++)
+        {
+            sum = sum + intValueArray[i];
+        }
+        return sum;
+    }
+    public double Sum(double[] intValueArray)
+    {
+        double sum = 0;
+        for (int i = 0; i < intValueArray.Length; i++)
+        {
+            sum = sum + intValueArray[i];
+        }
+        return sum;
+    }
+
 }
 
-// Base Class
-public class Users
-{
-    public virtual void GetInfo()
-    {
-        Console.WriteLine("Base Class");
-    }
-}
-// Derived Class
-public class Details : Users
-{
-    public override void GetInfo()
-    {
-        Console.WriteLine("Derived Class");
-    }
-}
 
 
 
