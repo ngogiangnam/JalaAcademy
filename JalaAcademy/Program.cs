@@ -12,63 +12,81 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
 {
-    //4. Create an object for the above EmployeeModel and assign the values to all properties and print each property on console
-    EmployeeModel employee = new EmployeeModel();
-    employee.EmpId = 1;
-    employee.EmpName = "Nam1";
-    employee.EmailId = "ngogiangNam90@gmail.com";
-    employee.Salary =60.5f;
-    employee.IsEmployeeActive = true;
-    Console.WriteLine($"Employee Id number is: {employee.EmpId}");
-    Console.WriteLine($"Employee Name  is: {employee.EmpName}");
-    Console.WriteLine($"Employee Email is: {employee.EmailId}");
-    Console.WriteLine($"Employee Id number so {employee.Salary}");
-    Console.WriteLine($"Employee is still active is : {employee.IsEmployeeActive}");
+    // 1.Write a program to show the use of public Access Modifier in c#
+    // Ex:
+    // Input:
+    // Details of student
+    // Studentid, StudentName
+    // Output :
+    // Studentid: 101
+    // StudentName: "santhi"
+    Student student1 = new Student();
+    student1.StudentId = 101;
+    student1.StudentName = "santhi";
+    Console.WriteLine($"Student Id is : {student1.StudentId}");
+    Console.WriteLine($"Student Name is : {student1.StudentName}");
 
-    // 5.Create another object for the above EmployeeModel and assign different values to all properties and print each property on console
-    EmployeeModel employee1 = new EmployeeModel();
-    employee1.EmpId = 2 ;
-    employee1.EmpName = "Nam2";
-    employee1.EmailId = "ngogiangNam90@gmail.com";
-    employee1.IsEmployeeActive = true;
-    Console.WriteLine($"Employee Id number is: {employee1.EmpId}");
-    Console.WriteLine($"Employee Name  is: {employee1.EmpName}");
-    Console.WriteLine($"Employee Email is: {employee1.EmailId}");
-    Console.WriteLine($"Employee Id number so {employee1.Salary}");
-    Console.WriteLine($"Employee is still active is : {employee1.IsEmployeeActive}");
+    // 3. Write a program on private access modifier in c#
+    student1.SetStudentFee(16);
+    Console.WriteLine($"Student Fee is : {student1.GetStudentFee()}");
+
+    // 4. Write a program on default access modifier in c#
+    student1.SetClassName("MathClass");
+    Console.WriteLine($"Class Name is : {student1.GetClassName()}");
 
 
 }
 
 
-class Employee
-{
-    // 1. Write a program on illustrating the read-only property by taking as class Employee in c#
-    public readonly string idName ="1";
 
-    //2. Write a program on both read and write property using get and set accessories in c#
-    private string name;
-    public string Name
+
+class Student
+{
+    public int StudentId { get; set; }
+    public string StudentName { get; set; }
+
+    string  className { get; set; }
+    
+
+    //3. Write a program on private access modifier in c#
+    // private field:
+    private int studentFee = 3;
+
+    //3. Write a program on private access modifier in c#
+    public void SetStudentFee(int fee)
     {
-    get
-    {
-            return name;
-        }
-        set
-        {
-        name = value;
-        }
+        this.studentFee = fee;
     }
-}
+    public int GetStudentFee()
+    {
+        return this.studentFee;
+    }
 
-// 3. Create a class with name EmployeeModel with 5 properties EmpId int, EmpName string, EmailId string, Salary float, IsEmployeeActive bool
-class EmployeeModel
-{
-    public int EmpId { get; set; }
-    public string EmpName { get; set; }
-    public string EmailId { get; set; }
-    public float Salary { get; set; }
-    public bool IsEmployeeActive { get; set; }
+
+    //4. Write a program on default access modifier in c#
+    public void SetClassName(string Classname)
+    {
+        this.className = Classname;
+    }
+    public string GetClassName()
+    {
+        return this.className;
+    }
+
+    protected string x { get; set; }
+    // Write a program on protected access modifier using one method in c#
+    // Ex:
+    // Input:
+    // Enter value of x
+    // Output :
+    // 10
+    protected void InputValue()
+    {
+        Console.WriteLine("Enter Value of X");
+        x= Console.ReadLine();
+        Console.WriteLine($"{x}");
+    }
+   
 }
 
 
