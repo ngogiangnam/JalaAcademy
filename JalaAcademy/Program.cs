@@ -1,205 +1,352 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Microsoft.VisualBasic;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Metrics;
-using System.Drawing;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Xml.Linq;
 {
-    // 1. Create a datatable object
-    DataTable workTable = new DataTable();
+    // 1.Create a list of employee objects with properties EmpId, EmpName, EmpSalary and DeptId add 10 employee objects to the above list
+    List<Employee> employees = new List<Employee>();
 
-    // 2. Create a datatable object with a name by using constructor
-    DataTable jalaTable = new DataTable("Jala");
-
-    // 3. Write any 10 properties of DataTable
-    // IsInitialized
-    // HasErrors
-    // DataSet
-    // Namespace
-    // CaseSensitive
-    // TableName
-    // PrimaryKey
-    // DefaultView
-    // MinimumCapacity
-    // Prefix
-
-
-    // 4. Write any 10 method of DataTable
-    // Import, EndLoadData, GetErrors, NewRow, Load , LoadDataRow, GetChanges, OnRemoveColumn, OnRowDeleted, OnTableCleared
-
-
-    // 5. Add 4 columns(EmpId, EmpName, Emp Salary, Department) to this data table object using columns.add() method.
-    jalaTable.Columns.Add("EmpId");
-    jalaTable.Columns.Add("EmpName");
-    jalaTable.Columns.Add("Emp Salary");
-    jalaTable.Columns.Add("Department");
-
-    // 6. Add 5 records to this datatable object using Rows.Add() method.
-
-    DataRow row1;
-    row1 = jalaTable.NewRow();
-    row1["EmpId"] = 1;
-    row1["EmpName"] = "A";
-    row1["Emp Salary"] = "1000";
-    row1["Department"] = "A Department";
-    jalaTable.Rows.Add(row1);
-
-    DataRow row2;
-    row2 = jalaTable.NewRow();
-    row2["EmpId"] = 1;
-    row2["EmpName"] = "B";
-    row2["Emp Salary"] = "2000";
-    row2["Department"] = "B Department";
-    jalaTable.Rows.Add(row2);
-
-    DataRow row3;
-    row3 = jalaTable.NewRow();
-    row3["EmpId"] = 3;
-    row3["EmpName"] = "C";
-    row3["Emp Salary"] = "1500";
-    row3["Department"] = "C Department";
-    jalaTable.Rows.Add(row3);
-
-    DataRow row4;
-    row4 = jalaTable.NewRow();
-    row4["EmpId"] = 4;
-    row4["EmpName"] = "D";
-    row4["Emp Salary"] = "2000";
-    row4["Department"] = "D Department";
-    jalaTable.Rows.Add(row4);
-
-    DataRow row5;
-    row5 = jalaTable.NewRow();
-    row5["EmpId"] = 5;
-    row5["EmpName"] = "E";
-    row5["Emp Salary"] = "3000";
-    row5["Department"] = "E Department";
-    jalaTable.Rows.Add(row5);
-
-    // 7. Print the EmpId column of this datatable using for loop
-    for (int i = 0; i < jalaTable.Rows.Count; i++)
+    Employee employee1 = new Employee()
     {
-        Console.Write($"{jalaTable.Rows[i]["EmpId"]} "); 
+        EmpId = 1,
+        EmpName = "kishore",
+        EmpSalary = 3000,
+        DeptId = 1,
+    };
+    employees.Add(employee1);
+
+    Employee employee2 = new Employee()
+    {
+        EmpId = 2,
+        EmpName = "kishore",
+        EmpSalary = 2000,
+        DeptId = 4,
+    };
+    employees.Add(employee2);
+
+    Employee employee3 = new Employee()
+    {
+        EmpId = 3,
+        EmpName = "A",
+        EmpSalary = 1000,
+        DeptId = 2,
+    };
+    employees.Add(employee3);
+
+    Employee employee4 = new Employee()
+    {
+        EmpId = 4,
+        EmpName = "B",
+        EmpSalary = 1000,
+        DeptId = 2,
+    };
+    employees.Add(employee4);
+
+    Employee employee5 = new Employee()
+    {
+        EmpId = 5,
+        EmpName = "C",
+        EmpSalary = 4000,
+        DeptId = 5,
+    };
+    employees.Add(employee5);
+
+    Employee employee6 = new Employee()
+    {
+        EmpId = 6,
+        EmpName = "D",
+        EmpSalary = 5000,
+        DeptId = 7,
+    };
+    employees.Add(employee6);
+
+    Employee employee7 = new Employee()
+    {
+        EmpId = 7,
+        EmpName = "E",
+        EmpSalary = 5000,
+        DeptId = 9,
+    };
+    employees.Add(employee7);
+
+    Employee employee8 = new Employee()
+    {
+        EmpId = 8,
+        EmpName = "F",
+        EmpSalary = 7000,
+        DeptId = 7,
+    };
+    employees.Add(employee8);
+
+    Employee employee9 = new Employee()
+    {
+        EmpId = 9,
+        EmpName = "G",
+        EmpSalary = 3000,
+        DeptId = 8,
+    };
+    employees.Add(employee9);
+
+    Employee employee10 = new Employee()
+    {
+        EmpId = 10,
+        EmpName = "H",
+        EmpSalary = 1500,
+        DeptId = 7,
+    };
+    employees.Add(employee10);
+
+
+    //1. Check whether 'Kishore' employee is present in the list using select method with lambda
+    //expression. and print the empid, empname, empsal and deptid of the employee object
+    //print distinct objects not distinct names
+
+    var searchEmployees = employees.Where(x => x.EmpName == "kishore").Select(s => new Employee()
+    {
+        EmpId = s.EmpId,
+        EmpName = s.EmpName,
+        EmpSalary = s.EmpSalary,
+        DeptId = s.DeptId,
+    });
+
+    if (searchEmployees == null)
+    {
+        Console.WriteLine("There is no Kishore in the list");
     }
-    Console.WriteLine();
-
-    // 8. Print the EmpId column of this datatable using foreach loop
-    foreach (DataRow row in jalaTable.Rows)
+    else
     {
-        Console.Write($"{row["EmpId"]} ");
-    }
-
-    // 9. Print the EmpId column of this datatable using DataRow property
-
-    // 10.Create another datatable with 5 columns(Your choice) and 4 records.
-    DataTable carTable = new DataTable("Car");
-    carTable.Columns.Add("Name");
-    carTable.Columns.Add("Color");
-    carTable.Columns.Add("Price");
-    carTable.Columns.Add("Speed");
-    carTable.Columns.Add("IsAuto");
-
-    DataRow rowCar1;
-    rowCar1 = carTable.NewRow();
-    rowCar1["Name"] = "Car 1";
-    rowCar1["Color"] = "Green";
-    rowCar1["Price"] = "100000";
-    rowCar1["Speed"] = "300";
-    rowCar1["IsAuto"] = false;
-    carTable.Rows.Add(rowCar1);
-
-    DataRow rowCar2;
-    rowCar2 = carTable.NewRow();
-    rowCar2["Name"] = "Car 2";
-    rowCar2["Color"] = "Blue";
-    rowCar2["Price"] = "200000";
-    rowCar2["Speed"] = "400";
-    rowCar2["IsAuto"] = true;
-    carTable.Rows.Add(rowCar2);
-
-    DataRow rowCar3;
-    rowCar3 = carTable.NewRow();
-    rowCar3["Name"] = "Car 3";
-    rowCar3["Color"] = "Red";
-    rowCar3["Price"] = "150000";
-    rowCar3["Speed"] = "300";
-    rowCar3["IsAuto"] = false;
-    carTable.Rows.Add(rowCar3);
-
-    DataRow rowCar4;
-    rowCar4 = carTable.NewRow();
-    rowCar4["Name"] = "Car 4";
-    rowCar4["Color"] = "Black";
-    rowCar4["Price"] = "200000";
-    rowCar4["Speed"] = "350";
-    rowCar4["IsAuto"] = false;
-    carTable.Rows.Add(rowCar4);
-
-    // 11. Create a DataSet object
-    DataSet dataSet = new DataSet();
-
-    // 12. Create a DataSet object with name 'MyDataSet' using its constructor
-    DataSet dataSetOject = new DataSet("MyDataSet");
-
-    // 13.Add above two datatables to MyDataSet DataSet using Tables.Add() method
-    dataSetOject.Tables.Add(jalaTable);
-    dataSetOject.Tables.Add(carTable);
-
-    // 14. Write any 3 Properties of ArrayList
-    // IsSynchronized,IsFixedSize, Count, Capacity
-
-    // 15. Write any 3 methods of ArrayList
-    // AddRange, IndexOf ,Insert
-
-    // 16.Difference between Array and Arraylist
-    // Array is static.	ArrayList is dynamic and can be modified the size whenever needed.
-    // Array  can either be single-dimensional or multidimensional.  ArrayList can be only single-dimensional 
-    //  Array is faster than ArrayList due to its static behaviour.ArrayList is slower as compared to the Array due to its dynamic behaviour.
-
-    // 17.Create a Arraylist and add 3 string elements 'One' , 'Two' , 'Three' by using add method
-    ArrayList arrayList = new ArrayList();
-    arrayList.Add("One");
-    arrayList.Add("Two");
-    arrayList.Add("Three");
-
-    Console.WriteLine();
-    // 18. Print the above arraylist element using for and foreach loop
-    foreach (var item in arrayList)
-    {
-        Console.Write($"{item}  ");
+        Console.WriteLine("There is Kishore in the list");
+        foreach (var employee in searchEmployees)
+        {
+            Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+        }
     }
 
-    Console.WriteLine();
-    // 19. Remove all the elements in the ArrayList using Clear method
-    arrayList.Clear();
-
-    // 20. Reverse all the elements in the ArrayList using Reverse method
-    arrayList.Add("One");
-    arrayList.Add("Two");
-    arrayList.Add("Three");
-    arrayList.Reverse();
-    foreach (var item in arrayList)
+    // 2.Check whether empid = 4 employee is present in the list using select method with lambda
+    // expression.and print the empid, empname, empsal and deptid of the employee object
+    // print distinct objects not distinct names
+    var searchIdEmployees = employees.Where(x => x.EmpId == 4).Select(s => new Employee()
     {
-        Console.Write($"{item}  ");
+        EmpId = s.EmpId,
+        EmpName = s.EmpName,
+        EmpSalary = s.EmpSalary,
+        DeptId = s.DeptId,
+    });
+
+    if (searchIdEmployees == null)
+    {
+        Console.WriteLine("There is no Employee with ID = 4 in the list");
     }
-    Console.WriteLine();
-
-    // 21. Sort all the elements in the ArrayList using Sort method
-    arrayList.Sort();
-    foreach (var item in arrayList)
+    else
     {
-        Console.Write($"{item}  ");
+        Console.WriteLine("There is Employee with ID = 4 in the list");
+        foreach (var employee in searchIdEmployees)
+        {
+            Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+        }
+    }
+
+    // 3.Check whether deptid = 4 employee is present in the list using select method with lambda
+    // expression.and print the empid, empname, empsal and deptid of the employee object
+    // print distinct objects not distinct names
+    var searchDeptIdEmployees = employees.Where(x => x.DeptId == 4).Select(s => new Employee()
+    {
+        EmpId = s.EmpId,
+        EmpName = s.EmpName,
+        EmpSalary = s.EmpSalary,
+        DeptId = s.DeptId,
+    });
+
+    if (searchDeptIdEmployees == null)
+    {
+        Console.WriteLine("There is no Employee with Dept ID = 4 in the list");
+    }
+    else
+    {
+        Console.WriteLine("There is Employee with Dept ID = 4 in the list");
+        foreach (var employee in searchDeptIdEmployees)
+        {
+            Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+        }
+    }
+
+    // 4. Create another employee list and copy the above list to this newly created employee list
+    List<Employee> newEmployees = new List<Employee>(employees);
+
+    //5. Create another employee list and copy the above list with empname having Kishore and print this list
+    //Note: The new list should contain only employee objects with name Kishore
+    List<Employee> listEmployees = employees.Where(x => x.EmpName == "kishore").Select(s => new Employee()
+    {
+        EmpId = s.EmpId,
+        EmpName = s.EmpName,
+        EmpSalary = s.EmpSalary,
+        DeptId = s.DeptId,
+    }).ToList();
+
+    if (listEmployees == null)
+    {
+        Console.WriteLine("There is no Kishore in the list");
+    }
+    else
+    {
+        Console.WriteLine("There is Kishore in the list");
+        foreach (var employee in listEmployees)
+        {
+            Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+        }
+    }
+
+    // 6.Create another employee list and copy the above list with empsalary having greater than 2000
+    // and print this list count and list
+    // Note: The new list should contain only employee objects with empsalary > 2000
+    var searchSalaryEmployees = employees.Where(x => x.EmpSalary > 2000).Select(s => new Employee()
+    {
+        EmpId = s.EmpId,
+        EmpName = s.EmpName,
+        EmpSalary = s.EmpSalary,
+        DeptId = s.DeptId,
+    });
+
+    if (searchSalaryEmployees == null)
+    {
+        Console.WriteLine("There is no Employee with salary greater than 2000 in the list");
+    }
+    else
+    {
+        Console.WriteLine($"There is {searchSalaryEmployees.Count()} Employee with salary greater than 2000 in the list");
+        foreach (var employee in searchSalaryEmployees)
+        {
+            Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+        }
+    }
+
+    // 7.Check whether deptid = 4 employee is present in the list using select method with lambda
+    // expression.and print the empid, empname, empsal and deptid of the employee object
+    var searchDeptId4Employees = employees.Where(x => x.DeptId == 4).Select(s => new Employee()
+    {
+        EmpId = s.EmpId,
+        EmpName = s.EmpName,
+        EmpSalary = s.EmpSalary,
+        DeptId = s.DeptId,
+    });
+
+    if (searchDeptId4Employees == null)
+    {
+        Console.WriteLine("There is no Employee with Dept ID = 4 in the list");
+    }
+    else
+    {
+        Console.WriteLine("There is Employee with Dept ID = 4 in the list");
+        foreach (var employee in searchDeptId4Employees)
+        {
+            Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+        }
+    }
+
+    // 8.Check whether deptid = 4 employee is present in the list using contains method with lambda expression.and print the empid,
+    // empname, empsal and deptid of the employee object
+    var searchDistinctEmployees = employees.Distinct(new EmployeeNameComparer());
+
+    if (searchDistinctEmployees == null)
+    {
+        Console.WriteLine("There is no Distinct Employee name in the list");
+    }
+    else
+    {
+        Console.WriteLine("There is Distinct Employee name in the list");
+        foreach (var employee in searchDistinctEmployees)
+        {
+            Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+
+        }
+
+    }
+
+    // 10. Create an integer array with 5 elements and convert this integer array into integer list using ToList()
+    int[] array1 = new int[5] { 1, 2, 3, 4, 5 };
+    List<int> arrayList = array1.ToList();
+
+    
+    // 11. Get the first employee in the employee list using First() method
+    Employee firstEmployee = employees.First();
+
+    // 12.Get the first employee in the employee list using FirstOrDefault() method
+    Employee firstOrDefaultEmployee = employees.FirstOrDefault();
+
+    // 13. Get the first employee in the employee list using Single() method
+    try
+    {
+        Employee singleEmployee = employees.Single();
+    }
+    catch (System.InvalidOperationException)
+    {
+        Console.WriteLine("The collection does not contain exactly one element.");
+    }
+
+    // 14. Get the first employee in the employee list using SingleOrDefault() method
+    try
+    {
+        Employee singleOrDefaultEmployee = employees.SingleOrDefault();
+    }
+    catch (System.InvalidOperationException)
+    {
+        Console.WriteLine("The collection does not contain exactly one element.");
+    }
+
+    // 15. Sort the employee list by EmpID using OrderBy() method
+    var empOrderByID = employees.OrderBy(x => x.EmpId).ToList() ;
+    Console.WriteLine("Order By ID");
+    foreach (var employee in empOrderByID)
+    {
+        Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+
+    }
+
+    // 16. Sort the employee list by EmpName using OrderBy() method
+    var empOrderByName = employees.OrderBy(x => x.EmpName).ToList();
+    Console.WriteLine("Order By Name");
+    foreach (var employee in empOrderByID)
+    {
+        Console.Write($"EmpId is {employee.EmpId}, EmpName is {employee.EmpName}, Emp Salary is {employee.EmpSalary}, Emp Dept Id is {employee.DeptId} \n");
+    }
+
+ 
+}
+
+class Employee
+{
+    public int EmpId { get; set; }
+    public string EmpName { get; set; }
+    public int EmpSalary { get; set; }
+    public int DeptId { get; set; }
+}
+
+
+// Custom comparer for the Product class
+class EmployeeNameComparer : IEqualityComparer<Employee>
+{
+    // Products are equal if their names and product numbers are equal.
+    public bool Equals(Employee x, Employee y)
+    {
+        if (Object.ReferenceEquals(x, y)) return true;
+
+        if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+            return false;
+
+        return x.EmpName == y.EmpName;
+    }
+
+    // If Equals() returns true for a pair of objects
+    // then GetHashCode() must return the same value for these objects.
+
+    public int GetHashCode(Employee employee)
+    {
+        //Check whether the object is null
+        if (Object.ReferenceEquals(employee, null)) return 0;
+
+        int hashEmployeeName = employee.EmpName == null ? 0 : employee.EmpName.GetHashCode();
+
+        return hashEmployeeName;
     }
 }
 
