@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
@@ -15,130 +16,191 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
 {
-    // 1.Write any 5 Properties of List
-    // 2.Write any 5 methods of List
-    // 3.Create an integer list and add any 5 integers to this list
-    // 4.Print the integer elements in the above list using for loop
-    List<int> listInt = new List<int>();
-    listInt.Add(1);
-    listInt.Add(2);
-    listInt.Add(3);
-    listInt.Add(4);
-    listInt.Add(5);
-    for (int i= 0; i < listInt.Count; i++)
+    // 1. Create a datatable object
+    DataTable workTable = new DataTable();
+
+    // 2. Create a datatable object with a name by using constructor
+    DataTable jalaTable = new DataTable("Jala");
+
+    // 3. Write any 10 properties of DataTable
+    // IsInitialized
+    // HasErrors
+    // DataSet
+    // Namespace
+    // CaseSensitive
+    // TableName
+    // PrimaryKey
+    // DefaultView
+    // MinimumCapacity
+    // Prefix
+
+
+    // 4. Write any 10 method of DataTable
+    // Import, EndLoadData, GetErrors, NewRow, Load , LoadDataRow, GetChanges, OnRemoveColumn, OnRowDeleted, OnTableCleared
+
+
+    // 5. Add 4 columns(EmpId, EmpName, Emp Salary, Department) to this data table object using columns.add() method.
+    jalaTable.Columns.Add("EmpId");
+    jalaTable.Columns.Add("EmpName");
+    jalaTable.Columns.Add("Emp Salary");
+    jalaTable.Columns.Add("Department");
+
+    // 6. Add 5 records to this datatable object using Rows.Add() method.
+
+    DataRow row1;
+    row1 = jalaTable.NewRow();
+    row1["EmpId"] = 1;
+    row1["EmpName"] = "A";
+    row1["Emp Salary"] = "1000";
+    row1["Department"] = "A Department";
+    jalaTable.Rows.Add(row1);
+
+    DataRow row2;
+    row2 = jalaTable.NewRow();
+    row2["EmpId"] = 1;
+    row2["EmpName"] = "B";
+    row2["Emp Salary"] = "2000";
+    row2["Department"] = "B Department";
+    jalaTable.Rows.Add(row2);
+
+    DataRow row3;
+    row3 = jalaTable.NewRow();
+    row3["EmpId"] = 3;
+    row3["EmpName"] = "C";
+    row3["Emp Salary"] = "1500";
+    row3["Department"] = "C Department";
+    jalaTable.Rows.Add(row3);
+
+    DataRow row4;
+    row4 = jalaTable.NewRow();
+    row4["EmpId"] = 4;
+    row4["EmpName"] = "D";
+    row4["Emp Salary"] = "2000";
+    row4["Department"] = "D Department";
+    jalaTable.Rows.Add(row4);
+
+    DataRow row5;
+    row5 = jalaTable.NewRow();
+    row5["EmpId"] = 5;
+    row5["EmpName"] = "E";
+    row5["Emp Salary"] = "3000";
+    row5["Department"] = "E Department";
+    jalaTable.Rows.Add(row5);
+
+    // 7. Print the EmpId column of this datatable using for loop
+    for (int i = 0; i < jalaTable.Rows.Count; i++)
     {
-        Console.Write($" {listInt[i]}");
+        Console.Write($"{jalaTable.Rows[i]["EmpId"]} "); 
     }
     Console.WriteLine();
-    // 5.Print the integer elements in the above list using foreach loop
-    foreach (var item in listInt)
+
+    // 8. Print the EmpId column of this datatable using foreach loop
+    foreach (DataRow row in jalaTable.Rows)
     {
-        Console.Write($" {item}");
+        Console.Write($"{row["EmpId"]} ");
+    }
+
+    // 9. Print the EmpId column of this datatable using DataRow property
+
+    // 10.Create another datatable with 5 columns(Your choice) and 4 records.
+    DataTable carTable = new DataTable("Car");
+    carTable.Columns.Add("Name");
+    carTable.Columns.Add("Color");
+    carTable.Columns.Add("Price");
+    carTable.Columns.Add("Speed");
+    carTable.Columns.Add("IsAuto");
+
+    DataRow rowCar1;
+    rowCar1 = carTable.NewRow();
+    rowCar1["Name"] = "Car 1";
+    rowCar1["Color"] = "Green";
+    rowCar1["Price"] = "100000";
+    rowCar1["Speed"] = "300";
+    rowCar1["IsAuto"] = false;
+    carTable.Rows.Add(rowCar1);
+
+    DataRow rowCar2;
+    rowCar2 = carTable.NewRow();
+    rowCar2["Name"] = "Car 2";
+    rowCar2["Color"] = "Blue";
+    rowCar2["Price"] = "200000";
+    rowCar2["Speed"] = "400";
+    rowCar2["IsAuto"] = true;
+    carTable.Rows.Add(rowCar2);
+
+    DataRow rowCar3;
+    rowCar3 = carTable.NewRow();
+    rowCar3["Name"] = "Car 3";
+    rowCar3["Color"] = "Red";
+    rowCar3["Price"] = "150000";
+    rowCar3["Speed"] = "300";
+    rowCar3["IsAuto"] = false;
+    carTable.Rows.Add(rowCar3);
+
+    DataRow rowCar4;
+    rowCar4 = carTable.NewRow();
+    rowCar4["Name"] = "Car 4";
+    rowCar4["Color"] = "Black";
+    rowCar4["Price"] = "200000";
+    rowCar4["Speed"] = "350";
+    rowCar4["IsAuto"] = false;
+    carTable.Rows.Add(rowCar4);
+
+    // 11. Create a DataSet object
+    DataSet dataSet = new DataSet();
+
+    // 12. Create a DataSet object with name 'MyDataSet' using its constructor
+    DataSet dataSetOject = new DataSet("MyDataSet");
+
+    // 13.Add above two datatables to MyDataSet DataSet using Tables.Add() method
+    dataSetOject.Tables.Add(jalaTable);
+    dataSetOject.Tables.Add(carTable);
+
+    // 14. Write any 3 Properties of ArrayList
+    // IsSynchronized,IsFixedSize, Count, Capacity
+
+    // 15. Write any 3 methods of ArrayList
+    // AddRange, IndexOf ,Insert
+
+    // 16.Difference between Array and Arraylist
+    // Array is static.	ArrayList is dynamic and can be modified the size whenever needed.
+    // Array  can either be single-dimensional or multidimensional.  ArrayList can be only single-dimensional 
+    //  Array is faster than ArrayList due to its static behaviour.ArrayList is slower as compared to the Array due to its dynamic behaviour.
+
+    // 17.Create a Arraylist and add 3 string elements 'One' , 'Two' , 'Three' by using add method
+    ArrayList arrayList = new ArrayList();
+    arrayList.Add("One");
+    arrayList.Add("Two");
+    arrayList.Add("Three");
+
+    Console.WriteLine();
+    // 18. Print the above arraylist element using for and foreach loop
+    foreach (var item in arrayList)
+    {
+        Console.Write($"{item}  ");
     }
 
     Console.WriteLine();
+    // 19. Remove all the elements in the ArrayList using Clear method
+    arrayList.Clear();
 
-    // 6. Create an string list and add any 5 integers to this list
-    List<string> listString = new List<string>();
-    listString.Add("A");
-    listString.Add("B");
-    listString.Add("C");
-    listString.Add("D");
-    listString.Add("E");
-    // 7.Print the string elements in the above list using for loop
-    for (int i = 0; i < listString.Count; i++)
+    // 20. Reverse all the elements in the ArrayList using Reverse method
+    arrayList.Add("One");
+    arrayList.Add("Two");
+    arrayList.Add("Three");
+    arrayList.Reverse();
+    foreach (var item in arrayList)
     {
-        Console.Write($" {listString[i]}");
-    }
-    Console.WriteLine();
-    // 8. Print the string elements in the above list using foreach loop
-    foreach (var item in listString)
-    {
-        Console.Write($" {item}");
+        Console.Write($"{item}  ");
     }
     Console.WriteLine();
 
-    // 9. Count the elements in the list and print on the console
-    Console.WriteLine($"Total element in the list is {listString.Count}");
-
-    // 10. Clear all the elements in the list using clear method
-    listString.Clear();
-
-    // 11. Check whether 'Kishore' is present in the string list using exists method
-    listString.Add("Kishore");
-    listString.Add("B");
-    listString.Add("C");
-    listString.Add("D");
-    listString.Add("E");
-    // 11. Check whether 'Kishore' is present in the string list using exists method
-    bool isExist = listString.Exists(x=>x.Equals("Kishore"));
-
-    // 12. Check whether 'Kishore' is present in the string list using Find method
-    string searchString  = listString.Find(x => x.Equals("Kishore"));
-
-    //13  whether 'Kishore' is present in the string list using contains method
-    bool isCotains =  listString.Contains("Kishore");
-
-    //14. Insert an element into the list using Insert method
-    listString.Insert(1, "A");
-
-    // 15. Reverse the list using reverse method
-    listString.Reverse();
-
-    // 16. Remove an element at index 3 using RemoveAt method
-    listString.RemoveAt(3);
-
-    // 17.Create a list with student class (List that accepts student objects)
-    List<Student> studentList = new List<Student>();
-    // 18. Add 10 Student objects to the list
-    studentList.Add(new Student() { Id =1, Name="A"});
-    studentList.Add(new Student() { Id =2, Name="B"});
-    studentList.Add(new Student() { Id =3, Name="C"});
-    studentList.Add(new Student() { Id =4, Name="D"});
-    studentList.Add(new Student() { Id =5, Name="E"});
-    studentList.Add(new Student() { Id =6, Name="G"});
-    studentList.Add(new Student() { Id =7, Name="F"});
-    studentList.Add(new Student() { Id =8, Name="H"});
-    studentList.Add(new Student() { Id =9, Name="L"});
-    studentList.Add(new Student() { Id =10, Name="I"});
-
-    // 19. Count the elements in the list and print on the console
-    int countStudentList = studentList.Count();
-    Console.WriteLine($"Total Student List is : {countStudentList}");
-
-    // 20. Clear all the elements in the list using clear method
-    studentList.Clear();
-
-    studentList.Add(new Student() { Id = 1, Name = "A" });
-    studentList.Add(new Student() { Id = 2, Name = "B" });
-    studentList.Add(new Student() { Id = 3, Name = "C" });
-    studentList.Add(new Student() { Id = 4, Name = "D" });
-    studentList.Add(new Student() { Id = 5, Name = "E" });
-    studentList.Add(new Student() { Id = 6, Name = "G" });
-    studentList.Add(new Student() { Id = 7, Name = "F" });
-    studentList.Add(new Student() { Id = 8, Name = "H" });
-    studentList.Add(new Student() { Id = 9, Name = "L" });
-    studentList.Add(new Student() { Id = 10, Name = "I" });
-
-    // 21. Check whether 'Kishore' student is present in the list using exists method
-    bool isStudentExist = studentList.Exists(x => x.Name.Equals("Kishore"));
-
-    // 22. Check whether 'Kishore' is present in the string list using Find method
-    Student searchStudent = studentList.Find(x => x.Name.Equals("Kishore"));
-
-    //23  whether 'Kishore' is present in the string list using contains method
-    Student containStudent = studentList.Where(x => x.Name.Contains("A")).FirstOrDefault();
-
-    // 24. Insert an student object into the list using Insert method
-    Student addStudent = new Student() { Id = 0, Name = "AA" };
-    studentList.Insert(0, addStudent);
-
-}
-
-class Student
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
+    // 21. Sort all the elements in the ArrayList using Sort method
+    arrayList.Sort();
+    foreach (var item in arrayList)
+    {
+        Console.Write($"{item}  ");
+    }
 }
 
 
